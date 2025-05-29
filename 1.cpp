@@ -1,14 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int fbn(int n){
-    if (n == 1) return 0;
-    if (n == 2) return 1;
-    return (fbn(n - 2) + fbn(n - 1));
+#define forn(i,n) for(int i = 2; i < n; i++)
+
+void fbn(int n){
+    int first = 0, second = 1, ans = 0;
+    cout << first << endl << second << endl;
+    forn(i, n){
+        ans = first + second;
+        first = second;
+        second = ans;
+        cout << ans << endl;
+    }
 }
 int main(){
     cout << "Hello, world!" << endl;
     int n; cin >> n;
-    cout << fbn(n);
+    fbn(n);
     return 0;
 }
